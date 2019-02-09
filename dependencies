@@ -1,0 +1,3 @@
+obj/WordCounterTest.o: src/WordCounterTest.cpp src/../inc/catch.hpp \
+ src/../inc/WordCounter.hpp
+obj/WordCounter.o: src/WordCounter.cpp src/../inc/WordCounter.hpp
