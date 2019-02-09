@@ -1,14 +1,35 @@
-#include "../inc/WordCounter.hpp"
+/**
+*	FILE NAME:    WordCounter.cpp
+* 	DESCRIPTION :   This is the description of all functions 
+*					contains in WordCounter.hpp
+*	
+*	Author :                J. Monnier
+*	Date:                   09/02/2019
+*	
+*	STATUS :	The algorithm of count count all the words minus one if there are
+				only spaces
+				Otherwise an url string, list of symbols and list of numbers are not counted
+*/				
 
-//ispunct
+#include "../inc/WordCounter.hpp"
 
 WordCounter::WordCounter(const string textLine){
 	this->textLine = textLine;
 }
 
+
+/** 
+* FONCTION NAME:				count
+* PARAMETERS: 					void
+* RETURN: 						unsigned int nbWord
+* DESCRIPTION: 					This function count the words contained in a string
+* 								
+* DATE : 						09/02/2019
+* AUTHOR : 						J.MONNIER
+* RULES FOR IMPLEMENTATION : 	If the string contains only space you need to add one at the result
+*/
 unsigned int WordCounter::count(void){
 	unsigned int	nbWord 			=	0;
-	bool			lockCount		=	false;
 
 	string tmpTextLine	=	this->textLine;
 

@@ -1,3 +1,12 @@
+/**
+*	FILE NAME:    	WordCounter.hpp
+* 	DESCRIPTION :   This file contains the declaration of the class WordCounter
+*
+*	Author :                J. Monnier
+*	Date:                   09/02/2019
+*/
+
+
 #include <iostream>
 #include <string>
 #include <fstream>

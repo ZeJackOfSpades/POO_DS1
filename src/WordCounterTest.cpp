@@ -1,3 +1,14 @@
+/**
+*	FILE NAME:		WordCounterTest.cpp
+* 	DESCRIPTION :   This is the test of WordCounter class
+*	
+*	Author :                J. Monnier
+*	Date:                   09/02/2019
+*	
+*	STATUS :	Only 3 / 4 TEST_CASE are passed
+*/		
+
+
 #define CATCH_CONFIG_MAIN
 
 #include "../inc/catch.hpp"
@@ -5,7 +16,7 @@
 
 TEST_CASE("Test space count","[WordCounter]"){
 	WordCounter word1("Za warudo");
-	
+
 	REQUIRE(word1.count() == 2);
 	
 }
