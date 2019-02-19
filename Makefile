@@ -5,9 +5,9 @@
 ### Generate 32 bit executable : 1=yes, 0=no = machine target (16 or 32 or 8 ...)
 M32?= 0 
 ### Including Debugging Symbols : 1=yes, 0=no step by step
-DBG?= 0
+DBG?= 1
 ### Including Compiler Optimizations : 1=yes, 0=no (line per line)
-OPT?= 1
+OPT?= 0
 ### Keep Assembly Files : 1=yes, 0=no (can change the value that is why there is a "?")
 ASM?= 0
 
@@ -35,7 +35,7 @@ OPTIMIZATIONS=-O0
 endif
 
 
-CXXFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11 -ffloat-store -fno-strict-aliasing -fsigned-char
+CXXFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11
 ifeq ($(M32),1)
 CXXFLAGS+=-m32
 endif
@@ -45,7 +45,7 @@ endif
 
 #If you have a file more than 4G you can open it if you have compiled in 32 bits
 #offset is if you want to go through 4GO when seek
-FLAGS=$(CXXFLAGS) -I$(INCDIR) -D __USE_LARGEFILE64 -D _FILE_OFFSET_BITS=64 -D _XOPEN_SOURCE=500
+FLAGS=$(CXXFLAGS) -I$(INCDIR)
 
 #link to library math
 LIBS=-lm
