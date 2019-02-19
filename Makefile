@@ -14,7 +14,7 @@ ASM?= 0
 CC=g++
 NAMEEXT=jack
 #name of the exe
-NAME=​test-smart-wc
+NAME=test-smart-wc
 #Dependancies
 DEPEND=dependencies
 BINDIR= bin
