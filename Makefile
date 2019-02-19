@@ -60,10 +60,10 @@ OBJ=    $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 BIN=    $(BINDIR)/$(NAME).$(NAMEEXT)
 
 #only these command are available
-.PHONY: default clean depend tgz
+.PHONY: default clean objdir_mk bindir_mk depend tgz
 
 #no make plus parameter than you do this
-default: objdir_mk depend bin
+default: objdir_mk depend bindir_mk bin
 
 clean:
 	@rm -rf $(OBJDIR)
@@ -74,8 +74,8 @@ clean:
 	@echo
 	@echo Cleaning done!
 	@echo
-	
-bin:    $(OBJ)
+
+bin:    bindir_mk $(OBJ)
 	@echo
 	@echo 'creating binary "$(BIN)"'
 	@$(CC) $(FLAGS) -o $(BIN) $(OBJ) $(LIBS)
@@ -94,7 +94,8 @@ depend:
 	@$(SHELL) -ec '$(CC) $(FLAGS) -MM $(INCLUDE) $(SRC) | sed '\''s@\(.*\)\.o[ :]@$(OBJDIR)/\1.o:@g'\'' >$(DEPEND)'
 	@echo '... done'
 	@echo
-	 
+
+
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@echo
 	@echo 'Compiling file "$<"'
@@ -105,7 +106,11 @@ ifeq ($(ASM),1)
 	@$(CC) -c -S $(FLAGS) $<
 	@mv *.s ./asm/
 endif
-	
+
+bindir_mk:
+	@echo 'Creating $(BINDIR) ...'
+	@mkdir -p $(BINDIR)
+
 objdir_mk:
 	@echo 'Creating $(OBJDIR) ...'
 	@mkdir -p $(OBJDIR)
