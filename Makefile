@@ -35,17 +35,17 @@ OPTIMIZATIONS=-O0
 endif
 
 
-CFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11 -ffloat-store -fno-strict-aliasing -fsigned-char
+CXXFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11 -ffloat-store -fno-strict-aliasing -fsigned-char
 ifeq ($(M32),1)
-CFLAGS+=-m32
+CXXFLAGS+=-m32
 endif
 ifeq ($(DBG),1)
-CFLAGS+=-g
+CXXFLAGS+=-g
 endif
 
 #If you have a file more than 4G you can open it if you have compiled in 32 bits
 #offset is if you want to go through 4GO when seek
-FLAGS=$(CFLAGS) -I$(INCDIR) -D __USE_LARGEFILE64 -D _FILE_OFFSET_BITS=64 -D _XOPEN_SOURCE=500
+FLAGS=$(CXXFLAGS) -I$(INCDIR) -D __USE_LARGEFILE64 -D _FILE_OFFSET_BITS=64 -D _XOPEN_SOURCE=500
 
 #link to library math
 LIBS=-lm
