@@ -29,13 +29,13 @@ WARNINGS=-W -Wall -Wundef -Wpointer-arith -Wcast-qual -Wsign-compare
 
 #optimisation or not (-O3 : code size and vitess)
 ifeq ($(OPT),1)
-OPTIMIZATIONS=-O3 -fomit-frame-pointer -ffloat-store -ffast-math
+OPTIMIZATIONS=-O3 -fomit-frame-pointer -ffast-math
 else
 OPTIMIZATIONS=-O0
 endif
 
 
-CXXFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11 -ffloat-store -fno-strict-aliasing -fsigned-char
+CXXFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11 -fno-strict-aliasing -fsigned-char
 ifeq ($(M32),1)
 CXXFLAGS+=-m32
 endif
