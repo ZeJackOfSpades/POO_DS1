@@ -29,7 +29,7 @@ WARNINGS=-W -Wall -Wundef -Wpointer-arith -Wcast-qual -Wsign-compare
 
 #optimisation or not (-O3 : code size and vitess)
 ifeq ($(OPT),1)
-OPTIMIZATIONS=-O3 -fomit-frame-pointer -ffloat-store -ffast-math
+OPTIMIZATIONS=-O3 -fomit-frame-pointer -ffast-math
 else
 OPTIMIZATIONS=-O0
 endif
