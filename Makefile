@@ -5,16 +5,16 @@
 ### Generate 32 bit executable : 1=yes, 0=no = machine target (16 or 32 or 8 ...)
 M32?= 0 
 ### Including Debugging Symbols : 1=yes, 0=no step by step
-DBG?= 0
+DBG?= 1
 ### Including Compiler Optimizations : 1=yes, 0=no (line per line)
-OPT?= 1
+OPT?= 0
 ### Keep Assembly Files : 1=yes, 0=no (can change the value that is why there is a "?")
 ASM?= 0
 
 CC=g++
 NAMEEXT=jack
 #name of the exe
-NAME=​test-smart-wc
+NAME=test-smart-wc
 #Dependancies
 DEPEND=dependencies
 BINDIR= bin
@@ -35,7 +35,7 @@ OPTIMIZATIONS=-O0
 endif
 
 
-CXXFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11 -fno-strict-aliasing -fsigned-char
+CXXFLAGS=$(WARNINGS) $(OPTIMIZATIONS) -std=c++11
 ifeq ($(M32),1)
 CXXFLAGS+=-m32
 endif
@@ -45,7 +45,7 @@ endif
 
 #If you have a file more than 4G you can open it if you have compiled in 32 bits
 #offset is if you want to go through 4GO when seek
-FLAGS=$(CXXFLAGS) -I$(INCDIR) -D __USE_LARGEFILE64 -D _FILE_OFFSET_BITS=64 -D _XOPEN_SOURCE=500
+FLAGS=$(CXXFLAGS) -I$(INCDIR)
 
 #link to library math
 LIBS=-lm
@@ -60,10 +60,10 @@ OBJ=    $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 BIN=    $(BINDIR)/$(NAME).$(NAMEEXT)
 
 #only these command are available
-.PHONY: default clean depend tgz
+.PHONY: default clean objdir_mk bindir_mk depend tgz
 
 #no make plus parameter than you do this
-default: objdir_mk depend bin
+default: objdir_mk depend bindir_mk bin
 
 clean:
 	@rm -rf $(OBJDIR)
@@ -74,8 +74,8 @@ clean:
 	@echo
 	@echo Cleaning done!
 	@echo
-	
-bin:    $(OBJ)
+
+bin:    bindir_mk $(OBJ)
 	@echo
 	@echo 'creating binary "$(BIN)"'
 	@$(CC) $(FLAGS) -o $(BIN) $(OBJ) $(LIBS)
@@ -94,7 +94,8 @@ depend:
 	@$(SHELL) -ec '$(CC) $(FLAGS) -MM $(INCLUDE) $(SRC) | sed '\''s@\(.*\)\.o[ :]@$(OBJDIR)/\1.o:@g'\'' >$(DEPEND)'
 	@echo '... done'
 	@echo
-	 
+
+
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@echo
 	@echo 'Compiling file "$<"'
@@ -105,7 +106,11 @@ ifeq ($(ASM),1)
 	@$(CC) -c -S $(FLAGS) $<
 	@mv *.s ./asm/
 endif
-	
+
+bindir_mk:
+	@echo 'Creating $(BINDIR) ...'
+	@mkdir -p $(BINDIR)
+
 objdir_mk:
 	@echo 'Creating $(OBJDIR) ...'
 	@mkdir -p $(OBJDIR)

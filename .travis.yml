@@ -18,7 +18,7 @@ matrix:
                       - llvm-toolchain-precise-3.8
                       packages:
                       - g++-7
-                      - clang-3.8
+#                      - clang-3.8
             - os: osx
               osx_image: xcode8
               env:
