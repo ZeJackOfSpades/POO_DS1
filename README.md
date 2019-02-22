@@ -1,6 +1,6 @@
-# POO_DS1
+# POO_DS1 [![Build Status](https://travis-ci.com/ZeJackOfSpades/POO_DS1.svg?branch=master)](https://travis-ci.com/ZeJackOfSpades/POO_DS1)
 
-[![Build Status](https://travis-ci.com/ZeJackOfSpades/POO_DS1.svg?branch=master)](https://travis-ci.com/ZeJackOfSpades/POO_DS1)
+
 This is the first Exams of POO course made by @ZeJackOfSpades also known as Jacques MONNIER.
 
 # Tree view
