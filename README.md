@@ -27,3 +27,7 @@ This is the tree view of the project
 # Create a binary 
 1. Run the command `make` after clonning or downloading the repository
 2. To execute the binary : `./bin/test-smart-wc.jack`
+
+# Copyright
+
+Thanks to @unice-etu-gom for helping me on travis topic
