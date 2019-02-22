@@ -1,21 +1,17 @@
 # POO_DS1
 
 [![Build Status](https://travis-ci.com/ZeJackOfSpades/POO_DS1.svg?branch=master)](https://travis-ci.com/ZeJackOfSpades/POO_DS1)
+This is the first Exams of POO course made by @ZeJackOfSpades AKA Jacques MONNIER also known as Jacques MONNIER.
 
 # Tree view
-After the `make` this is the tree view of the project
+This is the tree view of the project
 ```Bash
 .
 ├── bin
-│   └── test-smart-wc.jack
-├── dependencies
 ├── inc
 │   ├── catch.hpp
 │   └── WordCounter.hpp
 ├── Makefile
-├── obj
-│   ├── WordCounter.o
-│   └── WordCounterTest.o
 ├── OtherFiles
 │   └── email_reference.txt
 ├── README.md
@@ -24,5 +20,10 @@ After the `make` this is the tree view of the project
 │   └── WordCounterTest.cpp
 └── test.txt
 
-5 directories, 12 files
+4 directories, 8 files
+
 ```
+
+# Create a binary 
+1. Run the command `make` after clonning or downloading the repository
+2. To execute the binary : `./bin/test-smart-wc.jack`
